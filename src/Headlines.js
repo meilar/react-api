@@ -7,7 +7,6 @@ class Headlines extends React.Component {
       .then(response => response.json())
       .then(
         (jsonifiedResponse) => {
-          console.log(jsonifiedResponse)
           this.setState({
             isLoaded: true,
             headlines: jsonifiedResponse
@@ -16,7 +15,7 @@ class Headlines extends React.Component {
         .catch((error) => {
           this.setState({
             isLoaded:true,
-            error
+            error: error
           });    
   });
 }

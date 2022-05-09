@@ -7,6 +7,7 @@ class Headlines extends React.Component {
       .then(response => response.json())
       .then(
         (jsonifiedResponse) => {
+          console.log(jsonifiedResponse)
           this.setState({
             isLoaded: true,
             headlines: jsonifiedResponse
@@ -16,9 +17,9 @@ class Headlines extends React.Component {
           this.setState({
             isLoaded:true,
             error
-          });
-        });
-  }
+          });    
+  });
+}
 
   componentDidMount() {
     this.makeApiCall()
@@ -44,7 +45,7 @@ class Headlines extends React.Component {
         (<React.Fragment>
           <h1>Headlines</h1>
           <ul>
-            {headlines.map((headline, index) =>
+            {headlines.results.map((headline, index) =>
             <li key={index}>
               <h3>{headline.title}</h3>
               <p>{headline.abstract}</p>
